@@ -1,6 +1,6 @@
 # Judge installation
 
-**Status** · Production deployment and installation links are pending Atlassian authentication. Use the [deployment guide](FORGE_DEPLOYMENT.md) to register and install from source on an administrator-controlled workspace today.
+**Status** · Production deployment and installation links are pending Forge registration, live validation, and production sharing. Use the [deployment guide](FORGE_DEPLOYMENT.md) to register and install from source on an administrator-controlled workspace today.
 
 Once shared links are generated, the Bitbucket installation is the core workflow. Use the separate Jira installation for the issue context and Rovo segment. Both apps are Forge-hosted and require no external API keys.
 

@@ -23,6 +23,7 @@ A separate Forge companion reads the Jira work item's actual context. A reviewer
 - [x] Independent V3 source, dated commit history, license and prior-work disclosure
 - [x] Forge modules and local tests
 - [x] Setup, security, test report, judge guide, and [demonstration script](DEMO_SCRIPT.md)
+- [x] Demo workspace, three test PRs, and shared Jira requirement prepared
 - [ ] Live Bitbucket panel, create and update events, and Jira/Rovo invocation verified
 - [ ] Production installations shared and links tested by an external administrator
 - [ ] Video recorded in a working installation, publicly uploaded to YouTube and linked here

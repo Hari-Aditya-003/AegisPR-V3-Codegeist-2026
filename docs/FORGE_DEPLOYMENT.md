@@ -3,7 +3,8 @@
 ## Prerequisites
 
 - A supported Node.js release. Use Node.js 22.23.4 or newer within the 22.x line for Forge CLI 15.1.
-- An Atlassian account and Forge API token. Keep the token in the CLI keychain or your organization's CI secret store.
+- An Atlassian account and an API token created with scopes for the **Forge** app. Keep the token in the CLI keychain or your organization's CI secret store.
+- Membership in an Atlassian Developer Space. First-time registration can create one and prompts the account holder to review Atlassian's Developer Terms.
 - A **Bitbucket Cloud workspace administrator** and access to a test repository. The provisioned Codegeist Jira demo site does not provide this workspace.
 - A Jira Cloud administrator and Rovo-enabled Jira for the companion. The Codegeist demo provisioning flow can supply a Jira and Rovo environment.
 
@@ -13,7 +14,7 @@ forge login
 forge whoami
 ```
 
-Use the Atlassian account email and a locally generated API token in the interactive prompt. For Jira/Rovo demo provisioning, run `forge site provision`. [Forge getting started](https://developer.atlassian.com/platform/forge/getting-started/) · [Codegeist demo provisioning](https://developer.atlassian.com/platform/forge/provision-a-demo-development-site/)
+Use the Atlassian account email and a Forge-scoped token in the interactive prompt. On the Atlassian API token page, choose **Create API token with scopes**, select **Forge**, and confirm the recommended scopes. For Jira/Rovo demo provisioning, run `forge site provision`. [Forge getting started](https://developer.atlassian.com/platform/forge/getting-started/) · [Codegeist demo provisioning](https://developer.atlassian.com/platform/forge/provision-a-demo-development-site/)
 
 ## Bitbucket app
 
@@ -25,7 +26,7 @@ AEGISPR_BITBUCKET_APP_ID=ari:cloud:ecosystem::app/00000000-0000-4000-8000-000000
   forge register 'AegisPR V3 for Bitbucket'
 ```
 
-Confirm the local manifest now contains the registered app ID. Reuse that ID on future deploys. If you restore the checked-in template, export the registered ID as `AEGISPR_BITBUCKET_APP_ID`.
+If asked for a Developer Space, select an existing space or create one for the project. Review the terms before continuing. Confirm the local manifest now contains the registered app ID. Reuse that ID on future deploys. If you restore the checked-in template, export the registered ID as `AEGISPR_BITBUCKET_APP_ID`.
 
 Run these commands from `apps/forge`.
 

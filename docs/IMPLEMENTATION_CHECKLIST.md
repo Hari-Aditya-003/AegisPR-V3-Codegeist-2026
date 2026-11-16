@@ -10,6 +10,8 @@
 - [x] Phase 5 · Implement and locally test Aegis Review Assistant's three read-only actions.
 - [x] Phase 6 · Implement review, evidence, status, recent runs and Jira Rovo entry point.
 - [x] Prepare developer, judge, Devpost and recording materials.
+- [x] Confirm Forge login, provision an active Jira/Rovo site, and open the three Bitbucket test PRs against a shared Jira requirement.
+- [ ] Register both Forge apps in a Developer Space.
 - [ ] Run authenticated Forge lint and install both apps. Verify create/update events, UI, Jira and Rovo in a real environment.
 - [ ] Deploy production and test both generated judge links.
 - [ ] Record a working demo, publish it to YouTube and complete the Devpost entry.

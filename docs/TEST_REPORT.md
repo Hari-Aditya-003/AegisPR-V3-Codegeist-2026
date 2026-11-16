@@ -25,3 +25,9 @@ Base in the recorded run was `846e129f7597cacd25e1a9e86033ba3af75f52f1`. This ta
 | Inconclusive | `4238cdd4d5d949248eb9152b6dea88eceae80ce1` | pass / unavailable | pass / unavailable | inconclusive |
 
 The local SDK validator does not contact an Atlassian installation. Platform testing still needs a registered ID for each app, Bitbucket workspace admin access, a Jira/Rovo site, and a test PR. Verify app deployment, REST redirect handling, queue delivery and runtime storage in Bitbucket. Verify Jira issue reads, snapshot publication, follow-up creation, and the three Rovo actions in a real site. Use the [deployment checklist](FORGE_DEPLOYMENT.md).
+
+## Atlassian fixture setup
+
+After authenticated CLI access was confirmed, the Codegeist Jira/Rovo demo site reached active status. Three open Bitbucket PRs target the same baseline commit and reference a Jira story with the coupon acceptance criteria. They cover the total changing from 90 to 110, a second valid quote, and moving the checked file. The PRs and the Jira story were reopened to verify that they persisted.
+
+These fixtures are ready for a live Forge run. The CLI reported that the account had no Developer Space, so app registration, authenticated lint, installation, and live Rovo verification remain pending.
