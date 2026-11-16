@@ -1,0 +1,12 @@
+{
+  "name": "aegispr-v3-codegeist",
+  "version": "3.0.0-preview.1",
+  "private": true,
+  "scripts": {
+    "validate:manifests": "node scripts/validate-manifests.cjs"
+  },
+  "devDependencies": {
+    "@forge/manifest": "13.7.0",
+    "tslib": "2.8.1"
+  }
+}

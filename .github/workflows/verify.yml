@@ -1,0 +1,33 @@
+name: Verify Forge preview
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            apps/forge/package-lock.json
+            apps/jira/package-lock.json
+      - run: npm ci
+      - run: npm ci --prefix apps/forge
+      - run: npm ci --prefix apps/jira
+      - run: npm --prefix apps/forge run typecheck
+      - run: npm --prefix apps/jira run typecheck
+      - run: npm --prefix apps/forge run test
+      - run: npm --prefix apps/jira run test
+      - run: npm --prefix apps/forge run build
+      - run: npm --prefix apps/jira run build
+      - run: npm run validate:manifests
