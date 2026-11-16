@@ -1,0 +1,40 @@
+modules:
+  bitbucket:repoPullRequestOverviewPanel:
+    - key: aegispr-review-panel
+      title: AegisPR V3
+      resource: review-ui
+      resolver:
+        function: review-resolver
+  trigger:
+    - key: pull-request-events
+      function: pr-event
+      events:
+        - avi:bitbucket:created:pullrequest
+        - avi:bitbucket:updated:pullrequest
+  consumer:
+    - key: review-consumer
+      queue: aegispr-reviews
+      function: review-worker
+  function:
+    - key: review-resolver
+      handler: index.resolver
+    - key: pr-event
+      handler: index.onPullRequest
+    - key: review-worker
+      handler: index.reviewWorker
+      timeoutSeconds: 90
+resources:
+  - key: review-ui
+    path: dist
+permissions:
+  scopes:
+    - read:pullrequest:bitbucket
+    - read:repository:bitbucket
+    - storage:app
+app:
+  id: ${AEGISPR_BITBUCKET_APP_ID}
+  runtime:
+    name: nodejs22.x
+environment:
+  variables:
+    - AEGISPR_BITBUCKET_APP_ID

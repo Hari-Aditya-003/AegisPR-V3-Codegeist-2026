@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "checks": [
+    { "name": "10% coupon reduces 100 to 90", "file": "store/quotes.json", "pointer": "/coupon10/total", "equals": 90 },
+    { "name": "Quote currency stays INR", "file": "store/quotes.json", "pointer": "/currency", "equals": "INR" }
+  ]
+}

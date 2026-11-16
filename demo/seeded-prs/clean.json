@@ -1,0 +1,5 @@
+{
+  "currency": "INR",
+  "coupon10": { "subtotal": 100, "total": 90 },
+  "coupon20": { "subtotal": 100, "total": 80 }
+}
