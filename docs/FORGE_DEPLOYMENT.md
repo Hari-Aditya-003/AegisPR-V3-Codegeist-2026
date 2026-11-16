@@ -17,10 +17,19 @@ Use the Atlassian account email and a locally generated API token in the interac
 
 ## Bitbucket app
 
-Work from `apps/forge`. If this is the first deployment, run `forge register` once and choose a new AegisPR app name. It writes an app ID into the manifest. You can keep that local registration or export it as `AEGISPR_BITBUCKET_APP_ID` if using the checked-in manifest template. For subsequent deploys, reuse the same ID. CI uses synthetic IDs only for offline validation.
+On first deployment, register from `apps/forge`. The inline value allows Forge to parse the template during registration. The CLI replaces it with the real ID in the local manifest.
 
 ```sh
 cd apps/forge
+AEGISPR_BITBUCKET_APP_ID=ari:cloud:ecosystem::app/00000000-0000-4000-8000-000000000001 \
+  forge register 'AegisPR V3 for Bitbucket'
+```
+
+Confirm the local manifest now contains the registered app ID. Reuse that ID on future deploys. If you restore the checked-in template, export the registered ID as `AEGISPR_BITBUCKET_APP_ID`.
+
+Run these commands from `apps/forge`.
+
+```sh
 npm ci
 npm run build
 forge lint
@@ -39,10 +48,17 @@ Install as a workspace administrator, then create a fresh seeded PR. Expand Aegi
 
 ## Jira and Rovo companion
 
-Open `apps/jira` and register a **separate** app once. If retaining the checked-in template, set `AEGISPR_JIRA_APP_ID` to that app's registered ID.
+From the repository root, open `apps/jira` and register a separate app once.
 
 ```sh
 cd apps/jira
+AEGISPR_JIRA_APP_ID=ari:cloud:ecosystem::app/00000000-0000-4000-8000-000000000002 \
+  forge register 'AegisPR V3 for Jira'
+```
+
+Confirm the local manifest contains the real Jira app ID. If you restore the checked-in template, export that ID as `AEGISPR_JIRA_APP_ID`. Continue from `apps/jira`.
+
+```sh
 npm ci
 npm run build
 forge lint
