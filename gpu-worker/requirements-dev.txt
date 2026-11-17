@@ -1,0 +1,6 @@
+fastapi==0.143.3
+starlette==1.8.0
+anyio==4.15.1
+numpy==2.3.2
+pytest==9.1.1
+httpx==0.28.1

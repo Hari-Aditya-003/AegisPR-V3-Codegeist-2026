@@ -6,3 +6,12 @@ dist/
 .forge/
 *.log
 .DS_Store
+
+# Local review workspace state and builds
+.venv/
+__pycache__/
+.pytest_cache/
+data/
+.next/
+coverage/
+*.tsbuildinfo

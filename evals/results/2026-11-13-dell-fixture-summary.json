@@ -1,0 +1,98 @@
+{
+  "measurement_date": "2026-11-13",
+  "fixture_benchmark": {
+    "dataset": "aegispr-seeded-prs-v1",
+    "dataset_sha256": "37bae17ebc4608b55fe05320b0ac379a96acb0bc430adf411a82e1bc247cff96",
+    "profile": "deterministic execution with fixture-authored oracle; no model",
+    "unique_cases": 12,
+    "repeats": 3,
+    "metrics": {
+      "cases": 36,
+      "true_positives": 24,
+      "false_positives": 0,
+      "false_negatives_including_abstentions": 0,
+      "abstentions": 9,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "categories": {
+      "boundary": {
+        "cases": 6,
+        "true_positives": 6,
+        "false_positives": 0,
+        "false_negatives_including_abstentions": 0,
+        "abstentions": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "off_by_one": {
+        "cases": 6,
+        "true_positives": 6,
+        "false_positives": 0,
+        "false_negatives_including_abstentions": 0,
+        "abstentions": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "null_handling": {
+        "cases": 6,
+        "true_positives": 6,
+        "false_positives": 0,
+        "false_negatives_including_abstentions": 0,
+        "abstentions": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "rounding": {
+        "cases": 3,
+        "true_positives": 3,
+        "false_positives": 0,
+        "false_negatives_including_abstentions": 0,
+        "abstentions": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "intended_change": {
+        "cases": 9,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives_including_abstentions": 0,
+        "abstentions": 9,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "no_behavior_change": {
+        "cases": 3,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives_including_abstentions": 0,
+        "abstentions": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "async_race": {
+        "cases": 3,
+        "true_positives": 3,
+        "false_positives": 0,
+        "false_negatives_including_abstentions": 0,
+        "abstentions": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "median_duration_ms": 2435.0,
+    "cost_usd": 0,
+    "limitations": [
+      "Synthetic fixtures and hand-authored oracles; not independent review-quality measurements.",
+      "No model comparison or external ReviewBench score is claimed."
+    ]
+  }
+}
