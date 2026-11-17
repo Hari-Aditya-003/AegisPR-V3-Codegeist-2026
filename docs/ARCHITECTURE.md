@@ -32,3 +32,5 @@ Forge's standard required/optional multi-app compatibility supports Jira and Con
 The Forge apps use Atlassian-hosted runtime and storage. The companion Next.js and FastAPI workspace is an optional single-operator service. It stores data in its own SQLite database and keeps a local Ed25519 signing key. The workspace reads allowlisted GitHub PR diffs at pinned revisions, executes the committed fixture catalog, and can use optional advisory providers. A trusted fixture worker and ranking worker are separately configured.
 
 A reviewer explicitly imports a Bitbucket JSON snapshot through the workspace UI. The importer validates the schema and per-assertion outcomes, records that the evidence was reviewer-supplied, and signs its stored copy. The local signature establishes the integrity of that copy. The Bitbucket report remains the source of record. [Workspace configuration](WORKSPACE.md)
+
+The hosted demo exposes the same workspace through a named Cloudflare Tunnel and a Worker VPC Service. The gateway serves the UI and API on one origin, and the API retains evidence in a persistent container volume. [Web deployment](WEB_DEPLOYMENT.md)

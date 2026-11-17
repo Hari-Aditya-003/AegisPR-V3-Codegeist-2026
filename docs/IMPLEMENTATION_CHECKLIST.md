@@ -15,6 +15,7 @@
 - [x] Run authenticated Forge lint and install both apps. Verify create/update events, UI, Jira and Rovo in a real environment.
 - [x] Deploy both Forge apps to production and verify the generated judge links reach the installation pages.
 - [x] Port the V2 workspace, curated execution, signed proof, repair, model controls and benchmarks.
+- [x] Deploy the [public V3 website](https://aegispr-v3.snap-hub.workers.dev/) and verify fixture execution, signed proof, and repair end to end.
 - [ ] Confirm the installation links with an independent administrator.
 - [x] Publish the [demonstration video](https://www.youtube.com/watch?v=oG6BR9BGm2U) and save the Devpost draft.
 - [ ] Accept the competition rules and submit the entry.

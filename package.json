@@ -1,6 +1,6 @@
 {
   "name": "aegispr-v3-codegeist",
-  "version": "3.0.0-preview.1",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "validate:manifests": "node scripts/validate-manifests.cjs"

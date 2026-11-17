@@ -44,3 +44,17 @@ jobs:
       - run: PYTHONPATH=backend python -m pytest -q backend/tests
       - run: PYTHONPATH=. python -m pytest -q
         working-directory: gpu-worker
+
+  container-smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      API_ACCESS_TOKEN: workspace-ci-fixture-placeholder
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - run: docker compose -p aegispr-v3-ci -f deploy/web/compose.yml up -d --build
+      - run: curl -fsS --retry 15 --retry-all-errors --retry-delay 2 http://127.0.0.1:18203/health
+      - run: bash deploy/web/smoke.sh http://127.0.0.1:18203
+      - name: Stop test containers
+        if: always()
+        run: docker compose -p aegispr-v3-ci -f deploy/web/compose.yml down --volumes

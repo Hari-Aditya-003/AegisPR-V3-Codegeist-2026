@@ -1,0 +1,79 @@
+services:
+  frontend:
+    build:
+      context: ../..
+      dockerfile: deploy/web/Dockerfile
+      target: frontend
+    restart: unless-stopped
+    networks: [application]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    mem_limit: 384m
+    pids_limit: 96
+  api:
+    build:
+      context: ../..
+      dockerfile: deploy/web/Dockerfile
+      target: api
+    restart: unless-stopped
+    networks: [application]
+    environment:
+      APP_ENV: production
+      API_ACCESS_TOKEN: "${API_ACCESS_TOKEN:?Set the workspace owner token in a private environment file}"
+      ALLOWED_ORIGINS: "${AEGISPR_PUBLIC_URL:-https://aegispr-v3.snap-hub.workers.dev}"
+      V2_ALLOWED_REPOSITORIES: "${V2_ALLOWED_REPOSITORIES:-}"
+      V2_DAILY_REVIEWS: "${V2_DAILY_REVIEWS:-120}"
+      V2_ENABLE_MODELS: "false"
+    volumes:
+      - review-data:/srv/aegispr/data
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    cpus: 1.5
+    mem_limit: 512m
+    pids_limit: 128
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8300/health', timeout=3).close()"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+  gateway:
+    image: nginx@sha256:901e593c95dc85f5a729f5765516321366ef4ac401821431d408897e95287d0a
+    restart: unless-stopped
+    depends_on: [frontend, api]
+    ports:
+      - "127.0.0.1:${AEGISPR_GATEWAY_PORT:-18203}:8080"
+    networks:
+      application:
+      origin:
+        aliases: [workspace-gateway.internal]
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    mem_limit: 96m
+  tunnel:
+    profiles: [cloudflare]
+    image: cloudflare/cloudflared@sha256:0aa26e284f05e6c77ae375b8c9c11d9eb6a448fb7bcd8d40f31cb6176189eb38
+    restart: unless-stopped
+    depends_on: [gateway]
+    user: "${AEGISPR_HOST_UID:-1000}:${AEGISPR_HOST_GID:-1000}"
+    command: ["tunnel", "--no-autoupdate", "run", "--token-file", "/run/secrets/connector-token"]
+    secrets: [connector-token]
+    networks: [origin]
+    read_only: true
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    mem_limit: 128m
+
+networks:
+  application:
+  origin:
+
+volumes:
+  review-data:
+
+secrets:
+  connector-token:
+    file: "${AEGISPR_TUNNEL_TOKEN_FILE:-./.env.tunnel-token}"

@@ -60,3 +60,7 @@ Python tests emitted a Starlette TestClient deprecation warning. Provider calls,
 ## Demo artifact
 
 The published walkthrough uses captures from the live development installations and the locally verified workspace. The source MP4 decoded without errors and contains 1920 × 1080 H.264 video and AAC narration. Its measured duration is 181.23 seconds. YouTube Studio reported Public visibility and completed HD processing. The public YouTube metadata endpoint returned the correct title without authentication. [Public walkthrough](https://www.youtube.com/watch?v=oG6BR9BGm2U)
+
+## Public website validation · November 17, 2026
+
+The V3 website and API were published to the same HTTPS origin via the V3 Cloudflare Worker, named tunnel, and a dedicated Compose stack. `bash deploy/web/smoke.sh` verified the homepage, guide, benchmark, settings, and Atlassian routes, and confirmed that anonymous requests to owner endpoints receive HTTP 401. It executed a coupon fixture, observed six base/head check records, verified its Ed25519 receipt, and observed three passing repair repetitions. A separate Chrome run reached the same result through the interface. [Public website](https://aegispr-v3.snap-hub.workers.dev/) · [Web deployment](WEB_DEPLOYMENT.md)

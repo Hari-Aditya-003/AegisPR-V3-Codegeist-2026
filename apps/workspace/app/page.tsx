@@ -22,7 +22,8 @@ export default function Page() {
           <p className="hero-copy">Compare base and head, inspect what each check found, and verify the signed evidence.</p>
           <div className="unified-actions">
             <Link className="v2-button" href="#run-fixture">Try a live fixture</Link>
-            <Link className="v2-button secondary" href="/atlassian">Open Forge integrations</Link>
+            <Link className="v2-button secondary" href="/atlassian">Install the Forge apps</Link>
+            <a className="v2-button secondary" href="https://www.youtube.com/watch?v=oG6BR9BGm2U">Watch the demo ↗</a>
           </div>
           <p className="field-hint">Live fixtures run without paid model calls.</p>
         </div>

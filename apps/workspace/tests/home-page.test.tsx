@@ -8,7 +8,8 @@ import Page from '../app/page'
 describe('V3 workspace homepage', () => {
   it('preserves the interactive illustration and links to live Forge workflows', () => {
     render(<Page />)
-    expect(screen.getByRole('link', { name: 'Open Forge integrations' })).toHaveAttribute('href', '/atlassian')
+    expect(screen.getByRole('link', { name: 'Install the Forge apps' })).toHaveAttribute('href', '/atlassian')
+    expect(screen.getByRole('link', { name: /Watch the demo/ })).toHaveAttribute('href', 'https://www.youtube.com/watch?v=oG6BR9BGm2U')
     expect(screen.getByText(/interactive example.*not a live review/i)).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: 'Safe change' }))
     expect(screen.getByText('VERIFIED WITHIN SCOPE')).toBeInTheDocument()

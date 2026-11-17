@@ -28,6 +28,7 @@ const securityHeaders = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   outputFileTracingRoot: process.cwd(),
+  output: process.env.AEGISPR_STANDALONE === "1" ? "standalone" : undefined,
   poweredByHeader: false,
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];

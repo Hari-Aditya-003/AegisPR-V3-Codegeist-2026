@@ -18,6 +18,10 @@ A separate Forge companion reads the Jira work item's actual context. A reviewer
 
 **Verification** · Live Bitbucket runs covered confirmed regression, passing assertions and unavailable head evidence. A fresh PR and a title update each triggered a review. The optional workspace provides repeatable Python/JavaScript fixtures, signed reports, SARIF, manual fixture repair and a benchmark. Its provider routing is optional and advisory. [Test report](TEST_REPORT.md)
 
+## Open and try AegisPR
+
+[Live evidence workspace](https://aegispr-v3.snap-hub.workers.dev/) · [Getting started](https://aegispr-v3.snap-hub.workers.dev/guide) · [Install Bitbucket and Jira](JUDGE_INSTALLATION.md) · [YouTube demo](https://www.youtube.com/watch?v=oG6BR9BGm2U)
+
 ## Submission checklist
 
 - [x] Independent V3 source, dated commit history, license and prior-work disclosure

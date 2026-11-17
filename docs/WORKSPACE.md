@@ -2,6 +2,10 @@
 
 The V3 repository includes the V2 Next.js interface, branding, resource rail, and FastAPI evidence service. It adds an Atlassian page that can import a saved Bitbucket report. Forge installations function independently.
 
+## Open the public website
+
+[Open AegisPR V3](https://aegispr-v3.snap-hub.workers.dev/). Run live CPU fixtures, verify signed proof and test prewritten repairs without an account. The owner code unlocks private workspace operations. [Public deployment guide](WEB_DEPLOYMENT.md)
+
 ## Start locally
 
 Use Node.js 22.23.4 or newer within the 22.x line, Python 3.12, npm, Git and Bash. Run commands from the repository root.

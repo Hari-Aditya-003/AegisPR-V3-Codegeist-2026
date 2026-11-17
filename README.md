@@ -2,6 +2,8 @@
 
 **Don't just review a pull request. Verify the evidence.**
 
+**[Open the live V3 website](https://aegispr-v3.snap-hub.workers.dev/)** · **[Run a live fixture](https://aegispr-v3.snap-hub.workers.dev/#run-fixture)** · **[Watch the 3:02 demo](https://www.youtube.com/watch?v=oG6BR9BGm2U)** · **[Install the Forge apps](docs/JUDGE_INSTALLATION.md)**
+
 AegisPR brings evidence-based review into a Bitbucket Cloud pull request. It scans added lines, records the PR's base and head commits, runs the destination commit's JSON assertions against both revisions, and shows the results in the PR overview. An optional Jira Forge app lets an authorized reviewer publish a bounded evidence snapshot on a related issue and ask **Aegis Review Assistant** to explain it.
 
 ## Live and local workflows
@@ -18,9 +20,23 @@ Both Forge apps are deployed to production. Development installations verified a
 
 The verifier supports same-repository JSON contract checks. It runs on Forge CPU with no external model, remote backend, Docker daemon or provider key. A confirmed regression is limited to a listed assertion that passed at base and failed at head. A PR without supported tests can still receive static findings.
 
-## Run the workspace
+## Start with the website
 
-Use the [workspace setup](docs/WORKSPACE.md) to run the UI, API, fixtures and benchmarks locally. The standalone workspace is optional for Bitbucket and Jira users.
+1. Open [AegisPR V3](https://aegispr-v3.snap-hub.workers.dev/) and select **Try a live fixture**.
+2. Select **Run safe example** to execute six checks using the committed fixture. Open **Proof** and select **Verify receipt**.
+3. Run **Verify fixture repair** on the coupon example or read the [getting-started guide](https://aegispr-v3.snap-hub.workers.dev/guide).
+4. Open [Atlassian integrations](https://aegispr-v3.snap-hub.workers.dev/atlassian) for the Bitbucket and Jira install guide. Explore [benchmarks](https://aegispr-v3.snap-hub.workers.dev/benchmarks) and [models and limits](https://aegispr-v3.snap-hub.workers.dev/settings).
+
+Public fixtures, proof and prewritten repairs are available without credentials. Owner access is required for pinned GitHub review, imports and benchmark runs. Use the [local workspace setup](docs/WORKSPACE.md) to run the entire workspace on your machine, or the [web deployment guide](docs/WEB_DEPLOYMENT.md) to operate it under your own HTTPS origin.
+
+## Project history
+
+| Version | Source and release |
+| --- | --- |
+| V1 | [Original repository](https://github.com/Hari-Aditya-003/AegisPR) · [Original website](https://hari-aditya-003.github.io/AegisPR/) |
+| V2 | [Apart Research repository](https://github.com/Hari-Aditya-003/AegisPR-V2-Apart-Research) · [V2 walkthrough](https://github.com/Hari-Aditya-003/AegisPR-V2-Apart-Research/releases/tag/v2.0.0-walkthrough.1) |
+| V3 | [Release history](https://github.com/Hari-Aditya-003/AegisPR-V3-Codegeist-2026/releases) · [Codegeist changes and attribution](docs/V2_TO_V3_CHANGES.md) |
+
 
 ## Run the Forge checks
 
