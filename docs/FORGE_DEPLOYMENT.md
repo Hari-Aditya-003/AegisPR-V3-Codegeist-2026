@@ -35,7 +35,7 @@ npm ci
 npm run build
 forge lint
 forge deploy -e development
-forge install --product bitbucket --site YOUR_WORKSPACE_SLUG -e development
+forge install --product bitbucket --site https://bitbucket.org/YOUR_WORKSPACE_SLUG/ -e development
 ```
 
 To add Jira navigation links to the Bitbucket panel, set the optional hostname and redeploy that environment.
@@ -67,8 +67,8 @@ forge deploy -e development
 forge install --product jira --site YOUR_SITE.atlassian.net -e development
 ```
 
-For an account with a provisioned Codegeist site, substitute `forge install --demo-site --product jira -e development`. Verify that the Jira issue panel shows a real issue, paste and publish a current Bitbucket snapshot that references its issue key, and invoke **Aegis Review Assistant**. Confirm that the report and evidence tool outputs contain the PR ID, exact revisions, and recorded outcomes. Open an issue with no snapshot and confirm the assistant reports that absence. Rovo availability and policy depend on the Atlassian site. [Rovo Forge guide](https://developer.atlassian.com/platform/forge/build-a-hello-world-rovo-agent/)
+For an account with a provisioned Codegeist site, substitute `forge install --demo-site --product jira -e development`. Open a real Jira issue and choose **View app actions → AegisPR evidence**. Then paste and publish a current Bitbucket snapshot that references its issue key, and invoke **Aegis Review Assistant**. Confirm that the report and evidence tool outputs contain the PR ID, exact revisions, and recorded outcomes. Open an issue with no snapshot and confirm the assistant reports that absence. Rovo availability and policy depend on the Atlassian site. [Rovo Forge guide](https://developer.atlassian.com/platform/forge/build-a-hello-world-rovo-agent/)
 
 ## Public judge sharing
 
-After live development checks, deploy each registered app with `forge deploy -e production`. In [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/), select each app, open **Distribution**, choose **Sharing**, select its target product and save. Copy each generated installation URL and test it as an administrator outside the developer organization. Add the tested URLs to [Judge installation](JUDGE_INSTALLATION.md). [Forge distribution instructions](https://developer.atlassian.com/platform/forge/distribute-your-apps/#start-sharing-your-app)
+After live development checks, deploy each registered app with `forge deploy -e production`. In [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/), select each app, open **Distribution**, choose **Sharing**, select its target product and save. Copy each generated installation URL into [Judge installation](JUDGE_INSTALLATION.md). Open the permissions pages and verify that they correspond to the correct apps. Independent installation requires an administrator from another organization. [Forge distribution instructions](https://developer.atlassian.com/platform/forge/distribute-your-apps/#start-sharing-your-app)

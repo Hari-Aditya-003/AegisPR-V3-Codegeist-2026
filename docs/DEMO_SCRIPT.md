@@ -1,6 +1,6 @@
 # Demo script and recording checklist
 
-Target length 4:35. Record after installing both apps and verifying the real PR and issue. Use a disposable Bitbucket repository and Jira issue with no sensitive contents.
+Target length 4:35. Record a fresh walkthrough using the verified Bitbucket demo repository and Jira story. Use a disposable Bitbucket repository and Jira issue with no sensitive contents.
 
 | Time | Show | Narration |
 | --- | --- | --- |
@@ -10,6 +10,6 @@ Target length 4:35. Record after installing both apps and verifying the real PR 
 | 1:35–2:40 | Open the three seeded results | “The base version satisfies the coupon contract. The proposed version fails the total assertion. The currency assertion still passes. The clean PR passes both checks. When a checked file is missing, AegisPR records unavailable evidence and calls the review inconclusive.” |
 | 2:40–3:25 | Show Jira issue and share snapshot | “The review identifies the Jira issue referenced by the PR. I'm deliberately sharing this snapshot with the issue's readers. Here's the actual Jira description for the requirement.” |
 | 3:25–4:10 | Ask the agent and show real results | “Aegis Review Assistant reads the shared report and issue as the requester. It can name the failing assertion, explain the outcome, and say which evidence is missing.” |
-| 4:10–4:35 | Return to the evidence table | “AegisPR gives the team a way to see what changed, what evidence it has, and what it still needs to verify before merging.” |
+| 4:10–4:35 | Import the actual Bitbucket snapshot in the V2-style workspace and open Proof | “The same report can be brought into the evidence workspace, where reviewers can inspect the outcomes and verify the local receipt. The original evidence stays with the Bitbucket pull request.” |
 
 Before upload, confirm that the PR event, manual run, check names, timestamps, exact revisions and actual agent output are legible. Crop credentials, account identifiers and private repos. Verify spoken audio and final runtime. Upload publicly to YouTube, open the public URL signed out, and add it to Devpost. A recording and upload are pending.

@@ -27,4 +27,8 @@ Forge KVS retains up to six attempts per PR for 30 days and drops older attempts
 
 Forge's standard required/optional multi-app compatibility supports Jira and Confluence. The second Forge app uses Jira's permission model instead of reading Bitbucket installation storage. An authorized reviewer shares a snapshot on a Jira issue referenced in the PR. The Jira resolver fetches the actual issue description, summary, and status. Rovo actions read the issue and saved snapshot as the requesting user. They return the reported results and provenance to the agent. The snapshot is a reviewer-shared copy and can be edited by someone with Jira edit access. The live Bitbucket panel is the source of record. [Forge app compatibility](https://developer.atlassian.com/platform/forge/app-compatibility/)
 
-There is no remote to configure for this preview. A general sandbox worker, signed cross-product transfer, and provider-neutral inference service belong behind separate deployment and authorization boundaries if added.
+## Evidence workspace
+
+The Forge apps use Atlassian-hosted runtime and storage. The companion Next.js and FastAPI workspace is an optional single-operator service. It stores data in its own SQLite database and keeps a local Ed25519 signing key. The workspace reads allowlisted GitHub PR diffs at pinned revisions, executes the committed fixture catalog, and can use optional advisory providers. A trusted fixture worker and ranking worker are separately configured.
+
+A reviewer explicitly imports a Bitbucket JSON snapshot through the workspace UI. The importer validates the schema and per-assertion outcomes, records that the evidence was reviewer-supplied, and signs its stored copy. The local signature establishes the integrity of that copy. The Bitbucket report remains the source of record. [Workspace configuration](WORKSPACE.md)

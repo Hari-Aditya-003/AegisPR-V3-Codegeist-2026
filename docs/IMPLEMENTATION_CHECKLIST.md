@@ -11,9 +11,11 @@
 - [x] Phase 6 · Implement review, evidence, status, recent runs and Jira Rovo entry point.
 - [x] Prepare developer, judge, Devpost and recording materials.
 - [x] Confirm Forge login, provision an active Jira/Rovo site, and open the three Bitbucket test PRs against a shared Jira requirement.
-- [ ] Register both Forge apps in a Developer Space.
-- [ ] Run authenticated Forge lint and install both apps. Verify create/update events, UI, Jira and Rovo in a real environment.
-- [ ] Deploy production and test both generated judge links.
+- [x] Register both Forge apps in a Developer Space.
+- [x] Run authenticated Forge lint and install both apps. Verify create/update events, UI, Jira and Rovo in a real environment.
+- [x] Deploy both Forge apps to production and verify the generated judge links reach the installation pages.
+- [x] Port the V2 workspace, curated execution, signed proof, repair, model controls and benchmarks.
+- [ ] Confirm the installation links with an independent administrator.
 - [ ] Record a working demo, publish it to YouTube and complete the Devpost entry.
 
-The preview covers same-repository JSON assertions. A general Docker execution service, external model adapters and automatic cross-product Jira context are outside the delivered preview.
+The native Forge verifier covers same-repository JSON assertions. The workspace adds trusted Python and JavaScript fixtures and optional provider-backed review guidance. Bitbucket evidence can be shared with Jira or imported into the workspace by the reviewer.

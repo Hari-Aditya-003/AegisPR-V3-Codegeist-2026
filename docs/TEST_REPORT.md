@@ -10,7 +10,7 @@
 | `npm --prefix apps/jira run test` | 5 passed |
 | `npm --prefix apps/forge run build` and `npm --prefix apps/jira run build` | Both built production Custom UI assets |
 | `npm run validate:manifests` | Both passed Atlassian SDK validation with local synthetic IDs |
-| `forge whoami` and `forge lint` | Forge CLI stopped before remote checks because there was no authenticated session |
+| `forge lint` after registration | Both apps passed authenticated Forge lint |
 
 The Forge test suite creates real Git commits and uses `git show` and `git diff` as the local source. Local responses exercise the Bitbucket API adapter, queue-consumer logic, event identity, retry exhaustion, authorization gating, report history, static rules, size limits, and missing or unsupported inputs. The Jira suite uses simulated responses to verify the three Rovo actions, denied access, snapshot validation and write operations. These checks do not exercise a deployed Atlassian tenant.
 
@@ -24,10 +24,35 @@ Base in the recorded run was `846e129f7597cacd25e1a9e86033ba3af75f52f1`. This ta
 | Clean | `6b954cdf5b3945474492705218f285f3451cbc2d` | pass / pass | pass / pass | no-regression-in-executed-checks |
 | Inconclusive | `4238cdd4d5d949248eb9152b6dea88eceae80ce1` | pass / unavailable | pass / unavailable | inconclusive |
 
-The local SDK validator does not contact an Atlassian installation. Platform testing still needs a registered ID for each app, Bitbucket workspace admin access, a Jira/Rovo site, and a test PR. Verify app deployment, REST redirect handling, queue delivery and runtime storage in Bitbucket. Verify Jira issue reads, snapshot publication, follow-up creation, and the three Rovo actions in a real site. Use the [deployment checklist](FORGE_DEPLOYMENT.md).
+## Live Atlassian validation
 
-## Atlassian fixture setup
+Both Forge apps were registered, passed authenticated lint, deployed to development, and installed in a Bitbucket Cloud demo workspace and a Jira/Rovo demo site. Both also deployed to production successfully. Their generated judge URLs opened to the correct product permissions pages.
 
-After authenticated CLI access was confirmed, the Codegeist Jira/Rovo demo site reached active status. Three open Bitbucket PRs target the same baseline commit and reference a Jira story with the coupon acceptance criteria. They cover the total changing from 90 to 110, a second valid quote, and moving the checked file. The PRs and the Jira story were reopened to verify that they persisted.
+| Live action | Observed result |
+| --- | --- |
+| Run the coupon regression PR from the Bitbucket panel | Base `94d1ad561dc5`, head `934e56fc5ae3`. The coupon total assertion passed on base and failed on head. Currency passed on both. |
+| Update the clean PR title after installation | The update event ran a review. Both assertions passed. |
+| Open a fresh same-repository PR after installation | The create event ran a review and both assertions passed, with no manual action. |
+| Run the PR that moved the checked file | Base passed and the head assertions were unavailable. The UI reported inconclusive. |
+| Share the regression snapshot on Jira | The Jira issue panel showed the issue and the saved reviewer-shared evidence. |
+| Ask Aegis Review Assistant about the result | Rovo cited Jira requirement `PLAT-33510`, the exact abbreviated revisions, the failed coupon check and the passing currency check. |
+| Open both production installation links | Both Forge permissions pages loaded. A separate administrator has yet to complete installation. |
 
-These fixtures are ready for a live Forge run. The CLI reported that the account had no Developer Space, so app registration, authenticated lint, installation, and live Rovo verification remain pending.
+Jira follow-up authorization and request handling are covered locally. The live verification shared a report on the demo issue and used Rovo. [Install guide](JUDGE_INSTALLATION.md)
+
+## Restored V2 workspace
+
+| Command or action | Observed result |
+| --- | --- |
+| `npm --prefix apps/workspace run typecheck` | Passed |
+| `npm --prefix apps/workspace test` | 17 passed |
+| `npm --prefix apps/workspace run build` | Production build passed |
+| `npm --prefix apps/workspace audit --omit=dev` | Zero runtime dependency vulnerabilities reported |
+| `PYTHONPATH=backend .venv/bin/python -m pytest -q backend/tests` | 6 passed |
+| `PYTHONPATH=. ../.venv/bin/python -m pytest -q` from `gpu-worker/` | 7 CPU-side tests passed |
+| Run a fixture from Chrome, open Proof, then verify a repair | Six base/head execution records and a valid Ed25519 receipt. All three repair executions passed. |
+| Start one benchmark pass in Chrome | 12 observations completed from 72 base/head executions. Eight regressions reproduced and three cases abstained. These counts apply to the curated suite. |
+| Import the real Bitbucket regression export in Chrome | Both assertions and the Jira key matched Bitbucket. The workspace verified the local receipt. |
+| Submit [V2 PR 6](https://github.com/Hari-Aditya-003/AegisPR-V2-Apart-Research/pull/6) to the allowlisted local API with pinned revisions | 12 changed files accounted for, six static findings, `ANALYSIS_ONLY`, and a valid signed receipt. |
+
+Python tests emitted a Starlette TestClient deprecation warning. Provider calls, GitHub check publishing, and optional Docker/CUDA infrastructure were outside this execution run. The workspace was verified on loopback. [Workspace setup](WORKSPACE.md)

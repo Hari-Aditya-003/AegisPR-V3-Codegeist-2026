@@ -4,9 +4,9 @@
 
 AegisPR brings evidence-based review into a Bitbucket Cloud pull request. It scans added lines, records the PR's base and head commits, runs the destination commit's JSON assertions against both revisions, and shows the results in the PR overview. An optional Jira Forge app lets an authorized reviewer publish a bounded evidence snapshot on a related issue and ask **Aegis Review Assistant** to explain it.
 
-## Preview status
+## Live and local workflows
 
-The two Forge manifests, both production UI builds, and the local review and Jira/Rovo action tests have been checked. A live Atlassian installation and Rovo conversation still require an authenticated Forge session and admin access. See the [test report](docs/TEST_REPORT.md) and [deployment instructions](docs/FORGE_DEPLOYMENT.md).
+Both Forge apps are deployed to production. Development installations verified automatic and manual Bitbucket reviews, Jira snapshot sharing, and a live Rovo explanation. See the [judge installation links](docs/JUDGE_INSTALLATION.md) and [test report](docs/TEST_REPORT.md).
 
 | Component | Where it runs | What it does |
 | --- | --- | --- |
@@ -14,10 +14,15 @@ The two Forge manifests, both production UI builds, and the local review and Jir
 | Review worker | Bitbucket Forge installation | Subscribes to PR create/update events, reads Bitbucket REST APIs, processes a durable queue and saves evidence in Forge storage. |
 | Jira companion | Jira issue panel | Reads Jira issue context, accepts an explicitly shared snapshot, and creates a follow-up when requested. |
 | Aegis Review Assistant | Rovo in Jira | Has three read-only actions for the saved report, assertion evidence and Jira issue context. |
+| Evidence workspace | Self-hosted Next.js and FastAPI | Preserves the V2 interface, fixtures, proof, repair, benchmark, resource and model screens. Accepts an explicitly imported Bitbucket snapshot. |
 
 The verifier supports same-repository JSON contract checks. It runs on Forge CPU with no external model, remote backend, Docker daemon or provider key. A confirmed regression is limited to a listed assertion that passed at base and failed at head. A PR without supported tests can still receive static findings.
 
-## Run the local checks
+## Run the workspace
+
+Use the [workspace setup](docs/WORKSPACE.md) to run the UI, API, fixtures and benchmarks locally. The standalone workspace is optional for Bitbucket and Jira users.
+
+## Run the Forge checks
 
 Requires Node.js 22, npm, Git and Bash.
 

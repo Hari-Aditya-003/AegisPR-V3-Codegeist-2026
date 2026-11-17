@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.0-preview.2 — 2026-11-17
+
+- Restored the V2 visual workspace, signed proof, fixtures, fixture repairs, benchmark reports, resource rail, and model settings.
+- Restored pinned GitHub static reviews, coverage, SARIF, and optional GitHub App configuration.
+- Added import and display of V3 Bitbucket snapshots in the evidence workspace.
+- Verified live Bitbucket events, regression evidence, Jira snapshot sharing, and a Rovo explanation.
+- Deployed both production Forge apps and verified their public installation pages.
+
 ## 3.0.0-preview.1 — 2026-11-16
 
 - Added a Bitbucket PR overview panel and Forge review worker backed by Async Events and KVS.

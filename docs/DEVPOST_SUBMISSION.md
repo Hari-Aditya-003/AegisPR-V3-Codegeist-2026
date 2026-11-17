@@ -12,11 +12,11 @@ A separate Forge companion reads the Jira work item's actual context. A reviewer
 
 **Category** · Apps for Software Teams
 
-**Intended bonus** · Best Agents — Rovo/Assignable Agents. A Forge `rovo:agent` and three `action` modules are implemented. Platform deployment and live action invocation still need to be demonstrated before the bonus is claimed.
+**Intended bonus** · Best Agents — Rovo/Assignable Agents. Aegis Review Assistant is deployed as a Forge `rovo:agent` with three read-only `action` modules. A live Rovo response cited the base and head revisions, the passing currency check, the failed coupon check, and the requirement from the Jira issue.
 
 **New Codegeist work** · Rebuilt the workflow for Forge and Bitbucket, developed a new CPU assertion engine, added the Jira and Rovo companion, and wrote new event and integration tests. The evidence-first principle and coupon scenario were adapted from AegisPR V2. [Prior-work disclosure](V2_TO_V3_CHANGES.md)
 
-**Verification** · Both app builds, both manifest validations, and local review and Jira/Rovo action tests are documented in the [test report](TEST_REPORT.md). Tests use real Git fixture commits and simulated product responses. The public preview supports JSON assertions and same-repository verification. General sandboxing and external model providers are future work.
+**Verification** · Live Bitbucket runs covered confirmed regression, passing assertions and unavailable head evidence. A fresh PR and a title update each triggered a review. The optional workspace provides repeatable Python/JavaScript fixtures, signed reports, SARIF, manual fixture repair and a benchmark. Its provider routing is optional and advisory. [Test report](TEST_REPORT.md)
 
 ## Submission checklist
 
@@ -24,8 +24,9 @@ A separate Forge companion reads the Jira work item's actual context. A reviewer
 - [x] Forge modules and local tests
 - [x] Setup, security, test report, judge guide, and [demonstration script](DEMO_SCRIPT.md)
 - [x] Demo workspace, three test PRs, and shared Jira requirement prepared
-- [ ] Live Bitbucket panel, create and update events, and Jira/Rovo invocation verified
-- [ ] Production installations shared and links tested by an external administrator
+- [x] Live Bitbucket panel, create and update events, and Jira/Rovo invocation verified
+- [x] Both production installation links shared and opened to permissions pages
+- [ ] Confirm installation with an independent administrator
 - [ ] Video recorded in a working installation, publicly uploaded to YouTube and linked here
 - [ ] Entrant reviews Codegeist eligibility and submits through Devpost
 
