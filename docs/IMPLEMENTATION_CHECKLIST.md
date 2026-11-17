@@ -16,6 +16,7 @@
 - [x] Deploy both Forge apps to production and verify the generated judge links reach the installation pages.
 - [x] Port the V2 workspace, curated execution, signed proof, repair, model controls and benchmarks.
 - [ ] Confirm the installation links with an independent administrator.
-- [ ] Record a working demo, publish it to YouTube and complete the Devpost entry.
+- [x] Publish the [demonstration video](https://www.youtube.com/watch?v=oG6BR9BGm2U) and save the Devpost draft.
+- [ ] Accept the competition rules and submit the entry.
 
 The native Forge verifier covers same-repository JSON assertions. The workspace adds trusted Python and JavaScript fixtures and optional provider-backed review guidance. Bitbucket evidence can be shared with Jira or imported into the workspace by the reviewer.

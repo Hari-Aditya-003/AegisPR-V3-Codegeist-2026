@@ -56,3 +56,7 @@ Jira follow-up authorization and request handling are covered locally. The live 
 | Submit [V2 PR 6](https://github.com/Hari-Aditya-003/AegisPR-V2-Apart-Research/pull/6) to the allowlisted local API with pinned revisions | 12 changed files accounted for, six static findings, `ANALYSIS_ONLY`, and a valid signed receipt. |
 
 Python tests emitted a Starlette TestClient deprecation warning. Provider calls, GitHub check publishing, and optional Docker/CUDA infrastructure were outside this execution run. The workspace was verified on loopback. [Workspace setup](WORKSPACE.md)
+
+## Demo artifact
+
+The published walkthrough uses captures from the live development installations and the locally verified workspace. The source MP4 decoded without errors and contains 1920 × 1080 H.264 video and AAC narration. Its measured duration is 181.23 seconds. YouTube Studio reported Public visibility and completed HD processing. The public YouTube metadata endpoint returned the correct title without authentication. [Public walkthrough](https://www.youtube.com/watch?v=oG6BR9BGm2U)

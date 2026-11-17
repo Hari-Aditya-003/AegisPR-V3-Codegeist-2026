@@ -1,5 +1,21 @@
 # Demo script and recording checklist
 
+The [public Codegeist demo](https://www.youtube.com/watch?v=oG6BR9BGm2U) runs 3:02. It uses actual Forge and workspace captures with synthesized narration.
+
+| Time | Published footage |
+| --- | --- |
+| 0:00 | AegisPR V3 and the evidence workspace |
+| 0:19 | Live Bitbucket coupon regression |
+| 0:44 | Review triggered by a fresh pull request |
+| 1:03 | Inconclusive review with unavailable head evidence |
+| 1:22 | Jira issue and shared verification report |
+| 1:44 | Aegis Review Assistant explains the result |
+| 2:06 | Repeated workspace fixture checks and signature verification |
+| 2:28 | Twelve-case execution benchmark |
+| 2:46 | Installation and source |
+
+## Live recording guide
+
 Target length 4:35. Record a fresh walkthrough using the verified Bitbucket demo repository and Jira story. Use a disposable Bitbucket repository and Jira issue with no sensitive contents.
 
 | Time | Show | Narration |
@@ -12,4 +28,4 @@ Target length 4:35. Record a fresh walkthrough using the verified Bitbucket demo
 | 3:25–4:10 | Ask the agent and show real results | “Aegis Review Assistant reads the shared report and issue as the requester. It can name the failing assertion, explain the outcome, and say which evidence is missing.” |
 | 4:10–4:35 | Import the actual Bitbucket snapshot in the V2-style workspace and open Proof | “The same report can be brought into the evidence workspace, where reviewers can inspect the outcomes and verify the local receipt. The original evidence stays with the Bitbucket pull request.” |
 
-Before upload, confirm that the PR event, manual run, check names, timestamps, exact revisions and actual agent output are legible. Crop credentials, account identifiers and private repos. Verify spoken audio and final runtime. Upload publicly to YouTube, open the public URL signed out, and add it to Devpost. A recording and upload are pending.
+Before upload, confirm that the PR event, manual run, check names, timestamps, exact revisions and actual agent output are legible. Crop credentials, account identifiers and private repos. Verify spoken audio and final runtime. Upload publicly to YouTube, open the public URL signed out, and add it to Devpost.

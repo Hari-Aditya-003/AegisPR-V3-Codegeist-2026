@@ -6,7 +6,7 @@ AegisPR brings evidence-based review into a Bitbucket Cloud pull request. It sca
 
 ## Live and local workflows
 
-Both Forge apps are deployed to production. Development installations verified automatic and manual Bitbucket reviews, Jira snapshot sharing, and a live Rovo explanation. See the [judge installation links](docs/JUDGE_INSTALLATION.md) and [test report](docs/TEST_REPORT.md).
+Both Forge apps are deployed to production. Development installations verified automatic and manual Bitbucket reviews, Jira snapshot sharing, and a live Rovo explanation. See the [judge installation links](docs/JUDGE_INSTALLATION.md), [test report](docs/TEST_REPORT.md), and [public demo](https://www.youtube.com/watch?v=oG6BR9BGm2U).
 
 | Component | Where it runs | What it does |
 | --- | --- | --- |

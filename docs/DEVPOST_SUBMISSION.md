@@ -27,7 +27,7 @@ A separate Forge companion reads the Jira work item's actual context. A reviewer
 - [x] Live Bitbucket panel, create and update events, and Jira/Rovo invocation verified
 - [x] Both production installation links shared and opened to permissions pages
 - [ ] Confirm installation with an independent administrator
-- [ ] Video recorded in a working installation, publicly uploaded to YouTube and linked here
-- [ ] Entrant reviews Codegeist eligibility and submits through Devpost
+- [x] [Public demonstration video](https://www.youtube.com/watch?v=oG6BR9BGm2U) · 3:02, linked in the Devpost draft
+- [ ] Entrant reviews the completed draft, accepts the Official Rules and Devpost Terms, and submits
 
 The deadline in the official rules is December 22, 2026 at noon Pacific, which is **December 23, 2026 at 1:30 a.m. IST**. Use the [official Codegeist rules](https://codegeist2026.devpost.com/rules) for entrants, distribution requirements, video and submission details.
